@@ -55,6 +55,7 @@ public class Main_option {
 		
 		return m;
 	}
+<<<<<<< HEAD
 	public void Login(Scanner sc) {
 		
 		
@@ -102,6 +103,84 @@ public class Main_option {
 		String e_address = sc.next();
 		System.out.println("Job : ");
 		String e_job = sc.next();
+=======
+	
+	public void Login(Scanner sc) {
+		
+		MemberDAO mDAO = new MemberDAO();
+		Member m = new Member();
+	
+			while(true) {
+				
+				System.out.print("ID : ");
+				String id = sc.next();
+				m.setId(id);
+				
+				System.out.print("Password : ");
+				String pwd = sc.next();	
+				m.setPwd(pwd);
+				
+				if(mDAO.id_check(m)>0) {	
+					if(mDAO.Login_check(m) == 1) {
+						System.out.println("Success");
+						break;
+					}
+					else {
+						System.out.println("Failed");
+					}
+				}else {
+					System.out.println("Not Exist ID");
+					continue;
+				}
+	
+			}
+			
+			System.out.println();
+			System.out.println("-----------------------------------------------------------------------------------------");
+			System.out.println("1. Edit member information  2. Edit Password  3. Secession  4. exit");
+			System.out.print("select : ");
+			
+			int select = sc.nextInt();
+			
+			switch(select) {
+			
+			case 1:
+				Edit_inform(sc);
+				break;
+				
+			case 2:
+				Edit_Pwd(sc);
+				break;
+			
+			case 3:
+				Secession(sc);
+				break;
+			
+			case 4:
+				break;
+			
+			
+			}
+		}
+		
+	
+	public void Edit_inform(Scanner sc) {
+		
+		System.out.print("Tel : ");
+		String tel = sc.next();
+		System.out.print("Fname : ");
+		String fname = sc.next();
+		System.out.print("Lname : ");
+		String lname = sc.next();
+		System.out.print("Sex : ");
+		String sex = sc.next();
+		System.out.print("Birth_D : ");
+		String birth_d = sc.next();
+		System.out.print("Address : ");
+		String address = sc.next();
+		System.out.print("Job : ");
+		String job = sc.next();
+>>>>>>> branch 'master' of https://github.com/wodus1035/UsedCar.git
 		
 	}
 	
